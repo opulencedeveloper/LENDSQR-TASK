@@ -1,0 +1,172 @@
+@import '../styles';
+
+$half-width: 50%;
+$full-width: 100%;
+$common-width: 447px;
+$zero-border: none;
+$upper-case: uppercase;
+$font-weight-6: 600;
+$border-radius: 5px;
+
+%buttonCommonStyle {
+    font-size: 12px;
+    text-transform: $upper-case;
+    color: $secondary-color;
+    border: $zero-border;
+    background-color: transparent;
+    font-weight: $font-weight-6;
+    cursor: pointer;
+}
+
+%zero-padding-margin {
+    margin: 0;
+    padding: 0;
+}
+
+%inputCommonStyle {
+    text-indent: 10px;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    color: $tertiary-color;
+    width: $full-width;
+    border-radius: $border-radius;
+}
+
+%sectionCommonStyle {
+    width: $half-width;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.logoDimension {
+    width: 173.76px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-top: 5rem;
+    margin-left: 7rem,
+}
+
+.welcomeImageDimension {
+    margin: 5rem;
+    flex-shrink: 0;
+}
+
+.section {
+    display: flex;
+}
+
+.section1 {
+    @extend %sectionCommonStyle;
+    height: 40rem;
+    justify-content: space-evenly;
+}
+
+.section2 {
+    @extend %sectionCommonStyle;
+    height: 100%;
+    align-items: center;
+    box-shadow: 0px 15px 90px 0px #00000008;
+}
+
+.welcomeText {
+    @extend %zero-padding-margin;
+    color: $primary-color;
+    font-family: $fonttBold;
+    font-size: 40px;
+}
+
+.subText {
+    margin-top: 1rem;
+    max-width: max-content;
+    color: $tertiary-color;
+    font-size: 20px;
+    margin-bottom: 5rem;
+}
+
+.emailInputStyle {
+    @extend %inputCommonStyle;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    border: 2px solid $tertiary-color-0;
+    height: 50px;
+}
+
+
+.passwordInputDiv {
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: space-between;
+    border: 2px solid $tertiary-color-0;
+    height: 50px;
+
+}
+
+.passwordInputStyle {
+    @extend %inputCommonStyle;
+}
+
+.showpassTextStyle {
+    @extend %buttonCommonStyle;
+    padding: 20px;
+
+}
+
+.fPasswordButtonDiv {
+    display: flex;
+}
+
+.fPasswordTextStyle {
+    @extend %buttonCommonStyle;
+    padding: 0;
+    margin: 1.2rem 0rem 1.7rem 0rem;
+}
+
+.loginTextStyle {
+    background-color: $secondary-color;
+    width: $full-width;
+    border: $zero-border;
+    flex-shrink: 0;
+    text-transform: $upper-case;
+    color: white;
+    border-radius: 8px;
+    height: 48px;
+    $font-weight: $font-weight-6;
+    font-size: 14px;
+}
+
+.formStyle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 447px;
+    height: 40rem;
+
+}
+
+
+
+@media screen and (max-width: $large-screen) {
+    .section1 {
+        display: none;
+    }
+
+
+    .section2 {
+        width: $full-width;
+        align-items: center;
+
+    }
+
+    .formStyle {
+        width: 80%;
+
+    }
+
+}

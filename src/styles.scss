@@ -1,0 +1,28 @@
+$primary-color: #213F7D;
+$secondary-color: #39CDCC;
+$tertiary-color: #545F7D;
+$tertiary-color-0: #545F7D26;
+
+$small-screen: 576px;
+$medium-screen: 788px;
+$large-screen: 992px;
+$extra-large-screen: 1200px;
+ 
+@font-face {
+  font-family: 'AvenirNextLTPro';
+  src: url('./fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Bold';
+  src: url('./fonts/AvenirNextLTPro-Bold.otf') format('opentype');
+}
+
+$fontRegular: 'AvenirNextLTPro', sans-serif;
+$fonttBold: 'AvenirNextLTPro-Bold', sans-serif;
+
+body {
+  font-family: 'AvenirNextLTPro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
