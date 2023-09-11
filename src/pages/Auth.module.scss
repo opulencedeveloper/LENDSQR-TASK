@@ -42,19 +42,6 @@ $border-radius: 5px;
 
 }
 
-.logoDimension {
-    width: 173.76px;
-    height: 36px;
-    flex-shrink: 0;
-    margin-top: 5rem;
-    margin-left: 7rem,
-}
-
-.welcomeImageDimension {
-    margin: 5rem;
-    flex-shrink: 0;
-}
-
 .section {
     display: flex;
 }
@@ -63,6 +50,17 @@ $border-radius: 5px;
     @extend %sectionCommonStyle;
     height: 40rem;
     justify-content: space-evenly;
+
+    img:nth-child(1) {
+        width: 173.76px;
+        height: 36px;
+        margin-top: 5rem;
+        margin-left: 7rem,
+    }
+
+    img:nth-child(2) {
+        margin: 5rem;
+    }
 }
 
 .section2 {
@@ -72,19 +70,29 @@ $border-radius: 5px;
     box-shadow: 0px 15px 90px 0px #00000008;
 }
 
-.welcomeText {
-    @extend %zero-padding-margin;
-    color: $primary-color;
-    font-family: $fonttBold;
-    font-size: 40px;
-}
+.formStyle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 447px;
+    height: 40rem;
 
-.subText {
-    margin-top: 1rem;
-    max-width: max-content;
-    color: $tertiary-color;
-    font-size: 20px;
-    margin-bottom: 5rem;
+    p:nth-child(1) {
+        @extend %zero-padding-margin;
+        color: $primary-color;
+        font-family: $fonttBold;
+        font-size: 40px;
+    }
+
+    p:nth-child(2) {
+        margin-top: 1rem;
+        max-width: max-content;
+        color: $tertiary-color;
+        font-size: 20px;
+        margin-bottom: 5rem;
+    }
+
 }
 
 .emailInputStyle {
@@ -119,13 +127,14 @@ $border-radius: 5px;
 
 .fPasswordButtonDiv {
     display: flex;
+
+    button {
+        @extend %buttonCommonStyle;
+        padding: 0;
+        margin: 1.2rem 0rem 1.7rem 0rem;
+    }
 }
 
-.fPasswordTextStyle {
-    @extend %buttonCommonStyle;
-    padding: 0;
-    margin: 1.2rem 0rem 1.7rem 0rem;
-}
 
 .loginTextStyle {
     background-color: $secondary-color;
@@ -140,15 +149,7 @@ $border-radius: 5px;
     font-size: 14px;
 }
 
-.formStyle {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow-y: auto;
-    width: 447px;
-    height: 40rem;
 
-}
 
 
 

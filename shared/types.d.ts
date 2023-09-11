@@ -5,11 +5,11 @@ export type InputProp = {
     className: string;
     placeholder: string;
     type: string;
-    //onClick: () => void; 
+    //onClick: () => void; /hvhhvjh
   };
 
-  export type ButtonProp = {
-    className: string;
+  export type TextButtonProp = {
+    className?: string;
     children: ChildrenProps;
     buttonType: ButtonType;
     onClick: () => void; 
