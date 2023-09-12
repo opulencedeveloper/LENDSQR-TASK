@@ -11,8 +11,8 @@ const Layout: React.FC<{ children: ChildrenProps }> = ({ children }) => {
             <Header />
             <main className={innerLayout}>
                 <Navigation />
-                <section>{children}
-                </section></main>
+                {children}
+                </main>
         </div>
     );
 };

@@ -1,7 +1,10 @@
+
 .outerLayout {
     height: 100vh;
 }
 
 .innerLayout {
     display: flex;
+    flex: 1;
+    overflow: hidden;
 }

@@ -14,16 +14,44 @@ $common-margin: 0.7rem;
     margin-right: $common-margin;
 }
 
+%navHeaderCommonStyle {
+    font-size: 12px;
+    font-weight: 500;
+    color: $primary-color;
+    padding-left: $layout-padding;
+    text-transform: uppercase;
+}
+
+%navCommonStyle {
+    align-items: center;
+    height: 40px;
+    margin: 0rem 0rem 0rem 0rem;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    img {
+        @extend %iconStyle;
+    }
+
+    p {
+        font-size: 16px;
+        color: $primary-color;
+    }
+}
+
 
 
 
 .navigation {
     width: 283px;
     height: fit-content;
-    border: 1px solid black;
+    padding-top: 2.3rem;
+    box-shadow: 0px 5px 20px 0px $shadow-color;
+
 
     div:nth-child(1) {
         @extend %commonStyle;
+        margin-bottom: 3rem;
 
         img {
             @extend %iconStyle;
@@ -34,6 +62,7 @@ $common-margin: 0.7rem;
             border: none;
             outline: none;
             color: $primary-color;
+            background-color: transparent;
             width: 10.3rem;
             font-size: 16px;
             -webkit-appearance: none;
@@ -43,42 +72,63 @@ $common-margin: 0.7rem;
             background-position: right 4px center;
 
         }
-    };
+
+        
+
+
+    }
+
+    ;
 
     div:nth-child(2) {
         @extend %commonStyle;
         align-items: center;
+
         img {
             @extend %iconStyle;
         }
-        p{
+
+        p {
             font-size: 16px;
+            padding-left: 1px;
             color: $primary-color;
         }
-    };
-    p:nth-child(3){
-        font-size: 12;
-        font-weight: 500;
-        color: $primary-color;
-        padding-left: $layout-padding;
-        text-transform: uppercase;
-    };
+    }
 
-    
+    ;
+
+    p:nth-child(3) {
+        @extend %navHeaderCommonStyle;
+    }
+
+    ;
+
+
+
+
+}
+
+
+.navHeaderStyle {
+    @extend %navHeaderCommonStyle;
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .activeNavLinkStyle {
-    @extend %commonStyle;
-    align-items: center;
-    height: 40px;
-    margin: 1rem 0rem 1rem 0rem;
+    @extend %navCommonStyle;
+    display: flex;
+    padding-left: 2.3rem;
     background-color: $secondary-color-shade;
-    border-left: 4px solid $secondary-color;
-    img {
-        @extend %iconStyle;
-    }
-    p{
-        font-size: 16px;
-        color: $primary-color;
-    }
-};
+    border-left: 3px solid $secondary-color;
+}
+
+;
+
+.nonActiveNavLinkStyle {
+    @extend %navCommonStyle;
+    display: flex;
+    padding-left: $layout-padding;
+}
+
+;

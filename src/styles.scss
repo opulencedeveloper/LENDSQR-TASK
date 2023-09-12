@@ -1,8 +1,14 @@
-$primary-color: #213F7D;
+$primary-color: #213F7D; 
 $secondary-color: #39CDCC;
-$secondary-color-shade:  #F0FAFA;
+$secondary-color-2: #E9B200;
+$secondary-color-shade:  #F0FAFA; 
 $tertiary-color: #545F7D;
+$tertiary-color-shade: #213F7D1A; 
+$tertiary-color-shade-1: #545F7D24;   
 $tertiary-color-0: #545F7D26;
+$error-color: #E4033B;
+$success-color: #39CD62;
+$shadow-color: #0000000A;
 
 $small-screen: 576px;
 $medium-screen: 788px;
@@ -25,15 +31,8 @@ $fontRegular: 'AvenirNextLTPro', sans-serif;
 $fonttBold: 'AvenirNextLTPro-Bold', sans-serif;
 
 body {
-  font-family: 'AvenirNextLTPro', sans-serif;
+   font-family: $fontRegular;
   margin: 0;
   padding: 0;
 }
 
-select {
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url('../public/images/icon/drop-down-icon.svg');
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-}

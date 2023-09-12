@@ -2,10 +2,10 @@ export type ChildrenProps = React.ReactNode;
 type ButtonType = "button" | "submit" | "reset";
 
 export type InputProp = {
-    className: string;
+    className?: string;
     placeholder: string;
     type: string;
-    //onClick: () => void; /hvhhvjh
+    onClick?: () => void; 
   };
 
   export type TextButtonProp = {
@@ -29,6 +29,28 @@ export type InputProp = {
   interface NavLinkType {
     link: string;
     title: string;
+    icon: string;
+  }
+
+  interface  CardContentType {
+    icon: string;
+    title: string;
+    subtitle: string;
+  }
+
+  interface TableDataType {
+    org: string;
+    username: string;
+    email: string;
+    phoneNo: string;
+    phoneNo: string;
+    date: string;
+    status: string;
+  }
+
+  interface OverLayInputType {
+    title: string;
+    type: string;
   }
 
 

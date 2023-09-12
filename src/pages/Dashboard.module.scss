@@ -1,0 +1,322 @@
+@import '../styles.scss';
+
+$commonWidth: 1037px;
+
+%commonTableDataStyle {
+    height: 4rem;
+
+    td {
+        font-size: 14px;
+        color: $tertiary-color;
+    }
+}
+
+%overLayCommonStyle {
+    border: 0.5px solid rgba($primary-color, 0.2);;
+        border-radius: 8px;
+        box-sizing: border-box;
+        outline: none;
+        color: $tertiary-color;
+        background-color: transparent;
+        height: 40px;
+        font-size: 16px;
+}
+
+%labelStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 12px 0px 12px;
+    border-radius: 100px;
+    text-align: center;
+    
+    width: fit-content;
+    height: 30px;
+}
+
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.3rem 0rem 1rem;
+    margin-left: 2rem;
+    overflow: hidden;
+    flex: 1;
+
+    >p {
+        font-size: 24px;
+        text-align: left;
+        font-weight: 500;
+        padding-left: 1rem;
+        color: $primary-color;
+
+    }
+
+    ;
+
+
+}
+
+.cardContainer {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-between;
+    max-width: $commonWidth;
+}
+
+.card {
+    height: 160px;
+    width: 240px;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    padding-left: 1.4rem;
+    margin-bottom: 2rem;
+    padding-top: 16px;
+    box-sizing: border-box;
+    border: 1px solid #213F7D0F;
+    box-shadow: 3px 5px 20px 0px $shadow-color;
+
+    div {
+        width: 41px;
+        height: 41px;
+
+        img {
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    p:nth-child(2) {
+        font-size: 14px;
+        color: $tertiary-color;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+    }
+
+    p:nth-child(3) {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 0.8rem;
+    }
+
+}
+
+
+th,
+td {
+    padding: 18px 24px 20px 20px;
+    
+}
+
+.tableContainer {
+    position: relative;
+    height: fit-content;
+    padding: 1rem;
+    overflow: auto;
+
+
+    table {
+        width: $commonWidth;
+        height: 29rem;
+        flex-shrink: 0;
+        overflow: auto;
+        border-collapse: collapse;
+        box-shadow: 3px 5px 20px 0px $shadow-color;
+        border-radius: 4px;
+    }
+}
+
+#date::-webkit-calendar-picker-indicator {
+    background: url('../../public/images/icon/drop-down-2-icon.svg') center center no-repeat;
+    background-size: cover; /* or contain, depending on your icon */
+    width: 20px; /* Adjust the width and height to fit your icon size */
+    height: 20px;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+    opacity: 0.8; /* Optionally adjust the opacity */
+    border: none; /* Optionally remove the border */
+    margin-left: -25px; /* Adjust the margin to position your icon properly */
+  }
+
+.overLay {
+    position: absolute;
+    width: 270px;
+    top: 5rem;
+    left: 1.8rem;
+    border-radius: 4px;
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 3px 5px 20px 0px $shadow-color;
+    border: 1px solid $tertiary-color-shade-1;
+    // STOPPED HERE
+
+    p {
+        color: $tertiary-color;
+        font-size: 14px;
+        font-weight:500;
+        margin-bottom: 0.3rem;
+    }
+    select {
+        @extend %overLayCommonStyle;
+        padding-left: 15px;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url('../../public/images/icon/drop-down-2-icon.svg');
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+
+    }
+    
+
+      input[type="date"] {
+    padding-right: 15px; 
+    text-indent: 9px;
+    color: $tertiary-color;
+      }
+
+    input{
+        @extend %overLayCommonStyle;
+        text-indent: 15px;
+    }
+}
+
+.headerStyle {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    p {
+        color: $tertiary-color;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    button {
+        width: 24px;
+        height: 24px;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        border: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
+
+.tableDataStyle {
+    @extend %commonTableDataStyle;
+    border-bottom: 1px solid $tertiary-color-shade;
+
+
+}
+
+.tableDataEndStyle {
+    @extend %commonTableDataStyle;
+}
+
+
+
+.pagerStyle {
+    display: flex;
+    justify-content: space-between;
+    max-width: $commonWidth;
+    margin: 1rem 0rem 0rem 1rem;
+
+    div:nth-child(1) {
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 14px;
+
+        }
+
+        select {
+            -webkit-appearance: none;
+            padding: 8px 0px 8px 8px;
+            color: $primary-color;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            border-radius: 5px;
+            width: 70px;
+            height: 30px;
+            background-color: #213F7D1A;
+            outline: none;
+            border: none;
+            appearance: none;
+            background-image: url('../../public/images/icon/drop-down-gray-icon.svg');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+    }
+
+    div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #213F7D1A;
+            outline: none;
+            border: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 4px;
+
+            img {
+                height: 11.21px;
+                width: 6.57px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            padding-left: 9px;
+            padding-right: 9px;
+            color: $tertiary-color;
+        }
+    }
+}
+
+.inActiveStyle {
+    @extend %labelStyle;
+    background-color: $tertiary-color-shade;
+    color: $tertiary-color;
+}
+
+.pendingStyle {
+    @extend %labelStyle;
+    background-color: rgba($secondary-color-2, 0.1);
+    color: $secondary-color-2;
+}
+
+
+.blackListStyle {
+    @extend %labelStyle;
+    background-color: rgba($error-color, 0.1);
+    color: $error-color;
+}
+
+.activeStyle {
+    @extend %labelStyle;
+    background-color: rgba($success-color, 0.1);
+    color: $success-color;
+}
+
+
+.moreVertButton{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
