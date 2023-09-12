@@ -15,7 +15,7 @@ export type InputProp = {
     onClick: () => void; 
   };
 
-  export type TextInputButtonProp = {
+  export type InputButtonProp = {
     parentStyle: string;
     placeholder: string;
     type: string;
@@ -25,6 +25,11 @@ export type InputProp = {
     buttonType: ButtonType;
     onClick: () => void; 
   };
+
+  interface NavLinkType {
+    link: string;
+    title: string;
+  }
 
 
 

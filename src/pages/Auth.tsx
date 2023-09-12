@@ -2,9 +2,9 @@ import { useState } from "react";
 import Input from "../components/ui/Input";
 import TextButton from "../components/ui/TextButton";
 import styles from "./Auth.module.scss";
-import TextInputButton from "../components/ui/TextInputButton";
+import TextInputButton from "../components/ui/InputButton";
 
-const { section, section1, section2, formStyle, passwordInputStyle, showpassTextStyle, loginTextStyle, fPasswordButtonDiv, fPasswordTextStyle, passwordInputDiv, emailInputStyle } = styles;
+const { section, section1, section2, formStyle, passwordInputStyle, showpassTextStyle, loginTextStyle, fPasswordButtonDiv, passwordInputDiv, emailInputStyle } = styles;
 
 
 const Auth = () => {

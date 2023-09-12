@@ -1,5 +1,6 @@
 $primary-color: #213F7D;
 $secondary-color: #39CDCC;
+$secondary-color-shade:  #F0FAFA;
 $tertiary-color: #545F7D;
 $tertiary-color-0: #545F7D26;
 
@@ -7,7 +8,9 @@ $small-screen: 576px;
 $medium-screen: 788px;
 $large-screen: 992px;
 $extra-large-screen: 1200px;
- 
+
+$layout-padding: 2.5rem;
+
 @font-face {
   font-family: 'AvenirNextLTPro';
   src: url('./fonts/AvenirNextLTPro-Regular.otf') format('opentype');
@@ -25,4 +28,12 @@ body {
   font-family: 'AvenirNextLTPro', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('../public/images/icon/drop-down-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 4px center;
 }
