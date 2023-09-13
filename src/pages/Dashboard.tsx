@@ -131,13 +131,16 @@ const Dashboard = () => {
             </div>}
             <table>
                 <thead>
-                    <tr >
+                    <tr>
                         {tableHeader.map((header, index) => <th key={index}>
                             <div className={headerStyle} > <p>{header}</p>
-                                <button onClick={toggleOverlayHandler} type="button"> <img
-                                    src={`/images/icon/filter-results-icon.svg`}
-                                    alt="place holder image"
-                                /></button></div> </th>)}
+                                <button onClick={toggleOverlayHandler} type="button">
+                                    <img
+                                        src={`/images/icon/filter-results-icon.svg`}
+                                        alt="place holder image" />
+                                </button>
+                            </div>
+                        </th>)}
                     </tr>
                 </thead>
                 <tbody>
@@ -156,7 +159,6 @@ const Dashboard = () => {
                                 src={`/images/icon/more-vert-icon.svg`}
                                 alt="place holder image"
                             />
-                                {/* selectedMoreVert === tableIndex.toString() && */}
                                 {selectedMoreVert === tableIndex.toString() &&
                                     <div className={moreVertOverlay}>
                                         <MoreVertDropDown />

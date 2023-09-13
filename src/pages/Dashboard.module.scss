@@ -4,7 +4,7 @@
 
     td {
         font-size: 14px;
-       
+
         color: $tertiary-color;
     }
 }
@@ -35,7 +35,6 @@
     padding: 0px 12px 0px 12px;
     border-radius: 100px;
     text-align: center;
-
     width: fit-content;
     height: 30px;
 }
@@ -55,10 +54,6 @@
         color: $primary-color;
 
     }
-
-    ;
-
-
 }
 
 .cardContainer {
@@ -244,6 +239,7 @@ td {
 
 .pagerStyle {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     max-width: $dashBoardCommonWidth;
     margin: 1rem 0rem 0rem 1rem;
@@ -339,7 +335,7 @@ td {
     border: none;
     outline: none;
     cursor: pointer;
-    
+
 }
 
 .moreVertOverlay {
@@ -352,21 +348,50 @@ td {
     padding: 5px 50px 8px 20px;
     box-shadow: 3px 5px 20px 0px $shadow-color;
 
-    div {
+    button {
         display: flex;
+        outline: none;
+        border: none;
+        background-color: transparent;
         align-items: center;
         background-color: white;
+        cursor: pointer;
+
         img {
             height: 16px;
             width: 16px;
         }
-        p{
+
+        p {
             font-size: 13px;
             font-weight: 500;
             color: $tertiary-color;
             margin-left: 0.4rem;
         }
-        
+
     }
 
+}
+
+@media screen and (max-width: $small-screen) {
+    .section1 {
+        padding-left: 0rem;
+        margin-left: 0.5rem;
+    }
+
+    // .pagerStyle {
+       
+    //     margin: 0.2rem 0rem 0rem 0.2rem;
+
+    //     div:nth-child(1) {
+    //         p {
+    //             font-size: 10px;
+    //         }
+    //     }
+    //     div:nth-child(2) {
+    //         p {
+    //             font-size: 10px;
+    //         }
+    //     }
+    // }
 }

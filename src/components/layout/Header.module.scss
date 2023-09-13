@@ -1,12 +1,81 @@
 @import '../../styles';
 
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    transition: all 0.25s;
+    position: relative;
+
+    &Top,
+    &Middle,
+    &Bottom {
+        position: absolute;
+        width: 24px;
+        height: 3px;
+        top: 0;
+        left: 0;
+        background: $tertiary-color;
+        transform: rotate(0);
+        transition: all 0.5s;
+    }
+
+    &Middle {
+        transform: translateY(7px);
+    }
+
+    &Bottom {
+        transform: translateY(14px);
+    }
+
+    &.open {
+        transform: rotate(90deg);
+        transform: translateY(0px);
+
+        & .hamburgerTop {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        & .hamburgerMiddle {
+            display: none;
+        }
+
+        & .hamburgerBottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+    }
+}
+
+.toggleNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+  
+    &.openNav {
+      transform: translateX(-100%);
+    }
+  }
+  
+
+
 .headerStyle {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem $layout-padding 1.5rem $layout-padding;
     box-shadow: 3px 0px 20px 0px $shadow-color;
+
     img {
         width: 144.8px;
         height: 30px;
@@ -16,7 +85,8 @@
         display: flex;
         align-items: center;
         width: fit-content;
-        a{
+
+        a {
             font-size: 16px;
             margin-right: 3rem;
         }
@@ -89,9 +159,29 @@
     height: 100%;
     width: 15%;
     cursor: pointer;
-    img{
+
+    img {
         height: 14px;
         width: 14px;
     }
 }
 
+@media screen and (max-width: $large-screen) {
+    .inputContainer {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+}
+
+
+@media screen and (max-width: $small-screen) {
+    .headerStyle {
+        div:nth-child(3) {
+            display: none;
+        }
+    }
+}

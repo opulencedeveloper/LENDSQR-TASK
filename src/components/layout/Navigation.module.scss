@@ -39,16 +39,11 @@ $common-margin: 0.7rem;
     }
 }
 
-
-
-
-.navigation {
-    width: 283px;
-    height: fit-content;
+%sharedNavStyle {
+    background-color: white;
     padding-top: 2.3rem;
     flex-shrink: 0;
     box-shadow: 0px 5px 20px 0px $shadow-color;
-
 
     div:nth-child(1) {
         @extend %commonStyle;
@@ -57,7 +52,6 @@ $common-margin: 0.7rem;
         img {
             @extend %iconStyle;
         }
-
 
         select {
             border: none;
@@ -71,12 +65,7 @@ $common-margin: 0.7rem;
             background-image: url('../../../public/images/icon/drop-down-2-icon.svg');
             background-repeat: no-repeat;
             background-position: right 4px center;
-
         }
-
-
-
-
     }
 
     div:nth-child(2) {
@@ -100,6 +89,21 @@ $common-margin: 0.7rem;
 }
 
 
+.navigation {
+    width: 283px;
+    height: fit-content;
+    @extend %sharedNavStyle;
+}
+
+.mobileNavigation {
+    width: 15rem;
+    height: 100vh;
+    overflow-y: auto;
+    display: none;
+    @extend %sharedNavStyle;
+}
+
+
 .navHeaderStyle {
     @extend %navHeaderCommonStyle;
     margin-top: 1.8rem;
@@ -118,4 +122,14 @@ $common-margin: 0.7rem;
     @extend %navCommonStyle;
     display: flex;
     padding-left: $layout-padding;
+}
+
+@media screen and (max-width: $medium-screen) {
+    .navigation {
+        display: none;
+    }
+
+    .mobileNavigation {
+        display: block;
+    }
 }

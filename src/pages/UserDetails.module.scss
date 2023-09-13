@@ -1,18 +1,32 @@
 @import "../styles.scss";
 
-section {
-    width: $dashBoardCommonWidth;
-    background-color: red;
+%commonButtonStyle {
+    outline: none;
+    height: fit-content;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 9px 12px 9px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.backButton {
+.divContainer {
+    width: $dashBoardCommonWidth;
+    padding: 2.5rem 2.7rem 0rem 2.7rem;
+}
+
+.firstDiv {
     display: flex;
     align-items: center;
-    background-color: black;
 
     button {
         height: 30px;
         width: 30px;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        border: none;
 
         img {
             width: 26.72px;
@@ -23,5 +37,280 @@ section {
     p {
         font-size: 16px;
         color: $tertiary-color;
+        margin-left: 0.7rem;
+    }
+}
+
+
+.secDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-size: 24px;
+        font-weight: 500;
+        color: $primary-color;
+    }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 40rem;
+        height: fit-content;
+
+
+        button:nth-child(1) {
+            @extend %commonButtonStyle;
+            border: 1px solid $error-color;
+            color: $error-color;
+            margin-right: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        button:nth-child(2) {
+            @extend %commonButtonStyle;
+            border: 1px solid $secondary-color;
+            color: $secondary-color;
+            margin-bottom: 0.8rem;
+
+        }
+    }
+}
+
+
+.thirdDiv {
+    box-shadow: 3px 5px 20px 0px $shadow-color;
+    padding: 1.4rem 0rem 0rem 1.7rem;
+    height: fit-content;
+
+    div:nth-child(1) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        height: fit-content;
+
+        div:nth-child(1) {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100px;
+
+            div:nth-child(1) {
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                height: 100px;
+                width: 100px;
+                background-color: rgba($primary-color, 0.2);
+                border-radius: 50%;
+
+
+                img {
+                    width: 27.92px;
+                    height: 29.3px;
+                }
+            }
+
+            div:nth-child(2) {
+                display: flex;
+                padding-right: 1.8rem;
+                padding-left: 1rem;
+                flex-direction: column;
+                justify-items: center;
+                align-items: start;
+                margin: 0;
+                border: none;
+
+                p:nth-child(1) {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 22px;
+                    color: $primary-color;
+                    font-weight: 500;
+                }
+
+                p:nth-child(2) {
+                    margin: 0;
+                    padding: 4px 0px 0px 0px;
+                    color: $tertiary-color;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            border-left: 1px solid rgba($primary-color, 0.2);
+            height: 80px;
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+
+
+            p {
+                font-size: 14px;
+                color: $tertiary-color;
+
+                margin: 0;
+                padding: 0;
+            }
+
+            div {
+                display: inline;
+                height: fit-content;
+                border: none;
+                margin: 4px 0px 0px 0px;
+                padding: 0;
+
+                img {
+                    width: 14.08px;
+                    height: 13.43px;
+                }
+            }
+        }
+
+        div:nth-child(3) {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            border-left: 1px solid rgba($primary-color, 0.2);
+            height: 80px;
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+
+
+            p:nth-child(1) {
+                font-size: 22px;
+                color: $primary-color;
+                font-weight: 500;
+                margin: 0;
+                padding: 0;
+            }
+
+            p:nth-child(2) {
+                font-size: 12px;
+                margin: 4px 0px 0px 0px;
+                padding: 0;
+                color: $primary-color;
+            }
+        }
+    }
+
+
+}
+
+.nav {
+    display: flex;
+    margin-top: 2rem;
+
+    span {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 100%;
+            background-color: transparent;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+.activeNavStyle {
+
+    border-bottom: 1px solid $secondary-color;
+
+    button {
+        color: $secondary-color;
+    }
+}
+
+.nonActiveNavStyle {
+    button {
+        color: $tertiary-color;
+    }
+
+}
+
+.lastDiv {
+    margin-top: 1rem;
+    box-shadow: 3px 5px 20px 0px $shadow-color;
+    border-radius: 4px;
+    padding: 0.6rem 1.3rem 0rem 1.3rem;
+
+    div {
+        border-bottom: 1px solid rgba($primary-color, 0.2);
+
+        p {
+            padding-top: 0.4rem;
+            color: $primary-color;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        div {
+            border: none;
+            display: flex;
+            justify-content: first baseline;
+            align-items: start;
+            flex-wrap: wrap;
+
+            div {
+                width: 11.8rem;
+                flex-direction: column;
+                margin-bottom: 1.4rem;
+
+                p:nth-child(1) {
+                    padding: 0;
+                    margin: 0px;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    color: $tertiary-color;
+                }
+
+                p:nth-child(2) {
+                    margin: 5px 0px 0px 0px;
+                    padding: 0;
+                    color: $tertiary-color;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (max-width: $small-screen) {
+    .divContainer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .thirdDiv {
+        padding-left: 1rem;
+    }
+
+    .activeNavStyle {
+        button {
+            font-size: 8px;
+        }
+    }
+
+    .nonActiveNavStyle {
+        button {
+            font-size: 8px;
+        }
+
     }
 }
