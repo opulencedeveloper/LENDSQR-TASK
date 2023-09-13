@@ -1,11 +1,16 @@
+import { useState } from "react";
+
+
 import { CardContentType, TableDataType, OverLayInputType } from "../../shared/types";
 import Input from "../components/ui/Input";
+import TextButton from "../components/ui/TextButton";
 
 import styles from "./Dashboard.module.scss";
+import MoreVertDropDown from "../components/dashboard/MoreVertDropDown";
 
 const { section1, card, cardContainer, tableContainer, headerStyle,
     tableDataStyle, usersText, pagerStyle, tableDataEndStyle, inActiveStyle,
-    pendingStyle, blackListStyle, activeStyle, moreVertButton, overLay
+    pendingStyle, blackListStyle, activeStyle, moreVertButton, overLay, moreVertOverlay
 } = styles;
 
 const cardContent: CardContentType[] = [
@@ -77,13 +82,24 @@ const pageButtonText: string[] = [
 const overLayInput: OverLayInputType[] = [
     { title: "Organization", type: "select" },
     { title: "Username", type: "text" },
+    { title: "Email", type: "email" },
     { title: "Date", type: "date" },
     { title: "Phone Number", type: "number" },
     { title: "Status", type: "select" },
 ];
 
 const Dashboard = () => {
-    
+    const [showOverlay, setShowOverlay] = useState(false);
+    const [selectedMoreVert, setSelectedMoreVert] = useState("");
+
+    const toggleOverlayHandler = () => {
+        setShowOverlay(prev => !prev);
+    }
+
+    const selectedMoreVertHandler = (value: string) => {
+        setSelectedMoreVert(value);
+    }
+
     return <section className={section1}>
         <p className={usersText}>Users</p>
         <div className={cardContainer}>
@@ -100,40 +116,52 @@ const Dashboard = () => {
 
         {/* TABLE */}
         <div className={tableContainer}>
-            <div className={overLay}>
-                {overLayInput.map((inputData, index) => <><p>Organization</p>
+            {showOverlay && <div className={overLay}>
+                {overLayInput.map((inputData, index) => <><p>{inputData.title}</p>
                     {inputData.type === "select" ? <select>
                         <option>Option1</option>
                         <option>Option2</option>
                     </select> :
                         <Input placeholder="User" type={inputData.type} />}</>)}
-            </div>
+                <div>
+                    <TextButton buttonType="button">Reset</TextButton>
+                    <TextButton buttonType="button">Filter</TextButton>
+                </div>
+
+            </div>}
             <table>
                 <thead>
                     <tr >
                         {tableHeader.map((header, index) => <th key={index}>
-                            <div className={headerStyle}> <p>{header}</p>
-                                <button type="button"> <img
+                            <div className={headerStyle} > <p>{header}</p>
+                                <button onClick={toggleOverlayHandler} type="button"> <img
                                     src={`/images/icon/filter-results-icon.svg`}
                                     alt="place holder image"
                                 /></button></div> </th>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((data, index) => {
-                        const isEnd = index === tableData.length - 1;
+                    {tableData.map((data, tableIndex) => {
+                        const isEnd = tableIndex === tableData.length - 1;
                         const labelStyle = data.status === "Pending" ? pendingStyle : data.status === "Inactive" ? inActiveStyle : data.status === "Blacklisted" ? blackListStyle : activeStyle;
+
                         return <tr className={isEnd ? tableDataEndStyle : tableDataStyle}>
-                            <td key={index}>{data.org}</td>
+                            <td key={tableIndex}>{data.org}</td>
                             <td>{data.username}</td>
                             <td>{data.email}</td>
                             <td>{data.phoneNo}</td>
                             <td>{data.date}</td>
                             <td ><p className={labelStyle}>{data.status}</p></td>
-                            <td ><button className={moreVertButton}><img
+                            <td><button onClick={() => selectedMoreVertHandler(tableIndex.toString())} className={moreVertButton}><img
                                 src={`/images/icon/more-vert-icon.svg`}
                                 alt="place holder image"
-                            /></button></td>
+                            />
+                                {/* selectedMoreVert === tableIndex.toString() && */}
+                                {selectedMoreVert === tableIndex.toString() &&
+                                    <div className={moreVertOverlay}>
+                                        <MoreVertDropDown />
+                                    </div>}
+                            </button></td>
                         </tr>
                     })}
                 </tbody>
@@ -161,8 +189,8 @@ const Dashboard = () => {
                     /></button>
             </div>
 
-        </div>
-    </section >
+        </div> </section>
+
 }
 
 export default Dashboard;

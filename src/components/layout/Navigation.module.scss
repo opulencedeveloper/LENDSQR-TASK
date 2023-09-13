@@ -46,6 +46,7 @@ $common-margin: 0.7rem;
     width: 283px;
     height: fit-content;
     padding-top: 2.3rem;
+    flex-shrink: 0;
     box-shadow: 0px 5px 20px 0px $shadow-color;
 
 
@@ -73,12 +74,10 @@ $common-margin: 0.7rem;
 
         }
 
-        
+
 
 
     }
-
-    ;
 
     div:nth-child(2) {
         @extend %commonStyle;
@@ -95,17 +94,9 @@ $common-margin: 0.7rem;
         }
     }
 
-    ;
-
     p:nth-child(3) {
         @extend %navHeaderCommonStyle;
     }
-
-    ;
-
-
-
-
 }
 
 
@@ -123,12 +114,8 @@ $common-margin: 0.7rem;
     border-left: 3px solid $secondary-color;
 }
 
-;
-
 .nonActiveNavLinkStyle {
     @extend %navCommonStyle;
     display: flex;
     padding-left: $layout-padding;
 }
-
-;

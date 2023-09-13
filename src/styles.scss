@@ -1,10 +1,10 @@
-$primary-color: #213F7D; 
+$primary-color: #213F7D;
 $secondary-color: #39CDCC;
 $secondary-color-2: #E9B200;
-$secondary-color-shade:  #F0FAFA; 
+$secondary-color-shade: #F0FAFA;
 $tertiary-color: #545F7D;
-$tertiary-color-shade: #213F7D1A; 
-$tertiary-color-shade-1: #545F7D24;   
+$tertiary-color-shade: #213F7D1A;
+$tertiary-color-shade-1: #545F7D24;
 $tertiary-color-0: #545F7D26;
 $error-color: #E4033B;
 $success-color: #39CD62;
@@ -16,6 +16,8 @@ $large-screen: 992px;
 $extra-large-screen: 1200px;
 
 $layout-padding: 2.5rem;
+$dashBoardCommonWidth: 1037px;
+
 
 @font-face {
   font-family: 'AvenirNextLTPro';
@@ -31,8 +33,7 @@ $fontRegular: 'AvenirNextLTPro', sans-serif;
 $fonttBold: 'AvenirNextLTPro-Bold', sans-serif;
 
 body {
-   font-family: $fontRegular;
+  font-family: $fontRegular;
   margin: 0;
   padding: 0;
 }
-

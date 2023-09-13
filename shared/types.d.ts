@@ -12,7 +12,7 @@ export type InputProp = {
     className?: string;
     children: ChildrenProps;
     buttonType: ButtonType;
-    onClick: () => void; 
+    onClick?: () => void; 
   };
 
   export type InputButtonProp = {
@@ -52,6 +52,7 @@ export type InputProp = {
     title: string;
     type: string;
   }
+
 
 
 
