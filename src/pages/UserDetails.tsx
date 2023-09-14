@@ -12,12 +12,13 @@ const navSection: string[] = [
     "General Details", "Documents", "Bank Details", "Loans", "Savings", "App and System"
 ];
 
-const storedUserData = localStorage.getItem("userData");
 
 const UserDetails = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { email } = params;
+
+    const storedUserData = localStorage.getItem("userData");
 
     if (!storedUserData) {
         return null;;
