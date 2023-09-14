@@ -16,15 +16,16 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
         if (isOpen) {
-        
-            navAnimationClass = open;
-            showNavClass = openNav;
-            setIsOpen(prevExpenses => !prevExpenses);
-        } else {
             navAnimationClass = "";
             showNavClass = "";
             
             setIsOpen(prevExpenses => !prevExpenses);
+            
+        } else {
+            navAnimationClass = open;
+            showNavClass = openNav;
+            setIsOpen(prevExpenses => !prevExpenses);
+            
         }
     };
 
@@ -57,7 +58,7 @@ const Header = () => {
                 />
             </InputButton>
             <div >
-                <a href="">Docs</a>
+                <a href="#">Docs</a>
                 <img
                     src="/images/icon/bell-icon.svg"
                     alt="bell icon"
