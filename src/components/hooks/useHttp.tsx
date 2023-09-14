@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { HttpResponseData } from "../../../shared/types";
 
 const useHttp = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const sendRequest = useCallback(async (applyData: (data: HttpResponseData) => void) => {
