@@ -14,7 +14,6 @@ const { section1, card, cardContainer, tableContainer, headerStyle,
     pendingStyle, blackListStyle, activeStyle, moreVertButton, overLay, moreVertOverlay
 } = styles;
 
-const storedUserData = localStorage.getItem("userData");
 
 
 const cardContent: CardContentType[] = [
@@ -61,6 +60,8 @@ const Dashboard = () => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedMoreVert, setSelectedMoreVert] = useState("");
     const navigate = useNavigate();
+    
+    const storedUserData = localStorage.getItem("userData");
 
     if (!storedUserData) {
         navigate('/', { replace: true });
