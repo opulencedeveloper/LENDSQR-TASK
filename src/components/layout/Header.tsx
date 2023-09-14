@@ -16,18 +16,15 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
         if (isOpen) {
-            navAnimationClass = "";
-            showNavClass = openNav;
-            
-            setIsOpen((prevExpenses) => {
-                return !prevExpenses;
-            });
-        } else {
+        
             navAnimationClass = open;
+            showNavClass = openNav;
+            setIsOpen(prevExpenses => !prevExpenses);
+        } else {
+            navAnimationClass = "";
             showNavClass = "";
-            setIsOpen((prevExpenses) => {
-                return !prevExpenses;
-            });
+            
+            setIsOpen(prevExpenses => !prevExpenses);
         }
     };
 
@@ -90,3 +87,8 @@ const Header = () => {
 }
 
 export default Header;
+
+
+
+
+

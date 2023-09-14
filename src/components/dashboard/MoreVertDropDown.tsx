@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-const MoreVertDropDown = () => {
+
+const MoreVertDropDown: React.FC<{id:string}> = ({ id }) => {
     const navigate = useNavigate();
 
     const detailsPageHandler = () => {
-        navigate('details', { replace: true });
+        navigate(id);
     }
     
     return <>

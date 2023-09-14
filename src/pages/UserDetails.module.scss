@@ -259,6 +259,7 @@
         div {
             border: none;
             display: flex;
+           
             justify-content: first baseline;
             align-items: flex-start;
             flex-wrap: wrap;
@@ -267,6 +268,7 @@
                 width: 11.8rem;
                 flex-direction: column;
                 margin-bottom: 1.4rem;
+                margin-right: 1.5rem;
 
                 p:nth-child(1) {
                     padding: 0;
@@ -278,7 +280,8 @@
 
                 p:nth-child(2) {
                     margin: 5px 0px 0px 0px;
-                    padding: 0;
+                    text-wrap: wrap;
+                    padding: 0px 10px 0px 0px;
                     color: $tertiary-color;
                     font-size: 16px;
                     font-weight: 500;

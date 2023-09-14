@@ -87,7 +87,29 @@ export interface UseHttpResponse {
     applyData: () => void
   ) => Promise<void>;
 }
+export interface TableDataType {
+  org: string;
+  username: string;
+  email: string;
+  phoneNo: string;
+  date: string;
+  status: string;
+}
+
+type UserData = {
+  org: string;
+  username: string;
+  email: string;
+  phoneNo: string;
+  date: string;
+  status: string;
+  personalinfo: UserInformationType[];
+  educationEmploymentInfo: UserInformationType[];
+  socialsInfo: UserInformationType[];
+  guarantor: UserInformationType[]; }
 
 export interface HttpResponseData {
-  tableData: TableDataType;
+  tableData: UserData;
 }
+
+export type DetailsDataType = UserData;

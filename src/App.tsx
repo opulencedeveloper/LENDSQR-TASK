@@ -21,17 +21,13 @@ function App() {
       <Routes>
         <Route path="dashboard">
           <Route index element={<Dashboard />} />
-          <Route path="details" element={<UserDetails />} />
+          <Route path=":email" element={<UserDetails />} />
         </Route>
       </Routes>
     </Layout>
 
   );
 }
-
-{/* <Routes>
-      <Route index element={<Auth />} />
-    </Routes> */}
 
 
 export default App;

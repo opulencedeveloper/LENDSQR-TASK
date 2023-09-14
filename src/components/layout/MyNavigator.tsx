@@ -33,7 +33,7 @@ const settingsNavLinks: NavLinkType[] = [
     { link: "/preferences", title: "Preferences", icon: "sliders" },
     { link: "/fees-and-pricing", title: "Fees and Pricing", icon: "badge-percent" },
     { link: "/audit-Logs", title: "Audit Logs", icon: "clipboard-list" },
-    { link: "/Audit-Logs", title: "Systems Messages", icon: "tire" },
+    { link: "/systems-messages", title: "Systems Messages", icon: "tire" },
 
 ];
 
@@ -70,7 +70,7 @@ const MyNavigator = () => {
             <p>{navData.title}</p> </NavLink>)}
         <p className={navHeaderStyle}>Businesses</p>
         {businessNavLinks.map((navData, index) => <NavLink
-            to="/"
+            to={navData.link}
             className={activeLink === navData.link ? activeNavLinkStyle : nonActiveNavLinkStyle}
             key={index}
         ><img
@@ -81,7 +81,7 @@ const MyNavigator = () => {
 
         <p className={navHeaderStyle}>Settings</p>
         {settingsNavLinks.map((navData, index) => <NavLink
-            to="/"
+            to={navData.link}
             className={activeLink === navData.link ? activeNavLinkStyle : nonActiveNavLinkStyle}
             key={index}
         ><img

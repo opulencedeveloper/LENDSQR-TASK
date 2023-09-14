@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { HttpResponseData } from "../../../shared/types";
+import { HttpResponseData } from "../../shared/types";
 
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +11,7 @@ const useHttp = () => {
     setError(null);
 
     try {
-      const response = await fetch("https://run.mocky.io/v3/b1e1f057-e2ed-4e10-ae60-cbc636bc4c1d");
+      const response = await fetch("https://run.mocky.io/v3/86fc67f1-4df1-45c8-8ce2-3bb7214d99a8");
 
       if (response.ok) {
         let responseData: HttpResponseData = await response.json();

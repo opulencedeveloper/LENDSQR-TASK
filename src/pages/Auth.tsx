@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import useHttp from "../components/hooks/useHttp";
+import useHttp from "../hooks/useHttp";
 
 import Input from "../components/ui/Input";
 import TextButton from "../components/ui/TextButton";
@@ -27,7 +27,8 @@ const Auth = () => {
         const { tableData } = res;
         const tableDataString = JSON.stringify(tableData);
         localStorage.setItem("userData", tableDataString);
-        navigate('/dashboard', { replace: true });
+        console.log(tableData);
+         navigate('/dashboard', { replace: true });
     };
 
     const loginHandler = () => {
@@ -42,7 +43,7 @@ const Auth = () => {
             />
                 <img
                     src="/images/image/welcome-image.svg"
-                    alt="LendsSQR welcome image"
+                    alt="LendsSQR welcome"
                 />
             </section>
             <section className={section2}>

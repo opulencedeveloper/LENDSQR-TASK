@@ -93,12 +93,12 @@ const Dashboard = () => {
         {/* TABLE */}
         <div className={tableContainer}>
             {showOverlay && <div className={overLay}>
-                {overLayInput.map((inputData, index) => <><p>{inputData.title}</p>
+                {overLayInput.map((inputData, index) => <span key={index}><p>{inputData.title}</p>
                     {inputData.type === "select" ? <select>
                         <option>Option1</option>
                         <option>Option2</option>
                     </select> :
-                        <Input placeholder="User" type={inputData.type} />}</>)}
+                        <Input placeholder="User" type={inputData.type} />}</span>)}
                 <div>
                     <TextButton buttonType="button">Reset</TextButton>
                     <TextButton buttonType="button">Filter</TextButton>
@@ -124,22 +124,26 @@ const Dashboard = () => {
                         const isEnd = tableIndex === userDataObject.length - 1;
                         const labelStyle = data.status === "Pending" ? pendingStyle : data.status === "Inactive" ? inActiveStyle : data.status === "Blacklisted" ? blackListStyle : activeStyle;
 
-                        return <tr className={isEnd ? tableDataEndStyle : tableDataStyle}>
-                            <td key={tableIndex}>{data.org}</td>
+                        return <tr key={tableIndex} className={isEnd ? tableDataEndStyle : tableDataStyle}>
+                            <td>{data.org}</td>
                             <td>{data.username}</td>
                             <td>{data.email}</td>
                             <td>{data.phoneNo}</td>
                             <td>{data.date}</td>
                             <td ><p className={labelStyle}>{data.status}</p></td>
-                            <td><button onClick={() => selectedMoreVertHandler(tableIndex.toString())} className={moreVertButton}><img
-                                src={`/images/icon/more-vert-icon.svg`}
-                                alt="place holder image"
-                            />
+                            <td><span className={moreVertButton}>
+                                <button onClick={() => selectedMoreVertHandler(tableIndex.toString())}>
+                                    <img
+                                        src={`/images/icon/more-vert-icon.svg`}
+                                        alt="place holder"
+                                    />
+                                </button>
                                 {selectedMoreVert === tableIndex.toString() &&
                                     <div className={moreVertOverlay}>
-                                        <MoreVertDropDown />
+                                        <MoreVertDropDown id={data.email} />
                                     </div>}
-                            </button></td>
+                            </span>
+                            </td>
                         </tr>
                     })}
                 </tbody>
