@@ -12,7 +12,7 @@ const Layout: React.FC<{ children: ChildrenProps }> = ({ children }) => {
             <main className={innerLayout}>
                 <Navigation />
                 {children}
-                </main>
+            </main>
         </div>
     );
 };

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
 $primary-color: #213F7D;
 $secondary-color: #39CDCC;
 $secondary-color-2: #E9B200;
@@ -16,7 +18,9 @@ $large-screen: 992px;
 $extra-large-screen: 1200px;
 
 $layout-padding: 2.5rem;
-$dashBoardCommonWidth: 1037px;
+$dashBoardCommonWidth: 71rem;
+
+$fontfamily2: 'Work Sans', sans-serif;
 
 
 @font-face {

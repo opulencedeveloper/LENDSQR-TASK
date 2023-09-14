@@ -1,4 +1,4 @@
-import MyNavigator from "./Navigator";
+import MyNavigator from "./MyNavigator";
 import styles from "./Navigation.module.scss";
 
 const { navigation } = styles;

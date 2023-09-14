@@ -1,21 +1,38 @@
 import { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+import useHttp from "../components/hooks/useHttp";
+
 import Input from "../components/ui/Input";
 import TextButton from "../components/ui/TextButton";
 import styles from "./Auth.module.scss";
 import TextInputButton from "../components/ui/InputButton";
+import { HttpResponseData } from "../../shared/types";
 
 const { section, section1, section2, formStyle, passwordInputStyle, showpassTextStyle, loginTextStyle, fPasswordButtonDiv, passwordInputDiv, emailInputStyle } = styles;
 
 
 const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const { isLoading, error, sendRequest: fetchDataHandler } = useHttp();
+    const navigate = useNavigate();
+
     const toggleShowPasswordHandler = () => {
         setShowPassword(prev => !prev);
     }
 
     const forgotPasswordHandler = () => { }
+    const myResponse = (res: HttpResponseData) => {
+        const { tableData } = res;
+        const tableDataString = JSON.stringify(tableData);
+        localStorage.setItem("userData", tableDataString);
+        navigate('/dashboard', { replace: true });
+    };
 
-    const loginHandler = () => { }
+    const loginHandler = () => {
+        fetchDataHandler(myResponse);
+    }
 
     return (
         <div className={section}>
@@ -25,7 +42,7 @@ const Auth = () => {
             />
                 <img
                     src="/images/image/welcome-image.svg"
-                    alt="LendsSQR Company Logo"
+                    alt="LendsSQR welcome image"
                 />
             </section>
             <section className={section2}>
@@ -44,10 +61,12 @@ const Auth = () => {
                     <div className={fPasswordButtonDiv}>
                         <TextButton buttonType="button"
                             onClick={forgotPasswordHandler}
-                            >Forgot PASSWORD?
+                        >Forgot PASSWORD?
                         </TextButton>
                     </div>
-                    <TextButton buttonType="button" onClick={loginHandler} className={loginTextStyle}>Log in</TextButton>
+                    <TextButton disable={isLoading} buttonType="button" onClick={loginHandler} className={loginTextStyle}>
+                        {isLoading ? "Please Wait" : "Log in"}
+                    </TextButton>
                 </form>
             </section>
         </div>

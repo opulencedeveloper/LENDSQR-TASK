@@ -1,20 +1,28 @@
 import Layout from "./components/layout/Layout";
 import Auth from "./pages/Auth";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import UserDetails from "./pages/UserDetails";
-// import Users from "./pages/Users";
 
 function App() {
+  const location = useLocation();
+  const path = location.pathname;
+
+  if (path === "/") {
+    return (
+      <Routes>
+        <Route index element={<Auth />} />
+      </Routes>
+    );
+  }
+
   return (
     <Layout>
       <Routes>
-        {/* <Route index element={<Auth />} />  */}
         <Route path="dashboard">
-        <Route index element={<Dashboard />}  />
-        <Route path="details" element={<UserDetails />}  />
+          <Route index element={<Dashboard />} />
+          <Route path="details" element={<UserDetails />} />
         </Route>
-        {/* <Route path="/users" element={<Users />} /> */}
       </Routes>
     </Layout>
 

@@ -6,25 +6,26 @@ const MoreVertDropDown = () => {
     const detailsPageHandler = () => {
         navigate('details', { replace: true });
     }
+    
     return <>
         <button onClick={detailsPageHandler}>
             <img
                 src={`/images/icon/eye-icon.svg`}
-                alt="place holder image"
+                alt="eye icon"
             />
             <p>View Details</p>
         </button>
         <button onClick={detailsPageHandler}>
             <img
                 src={`/images/icon/black-list-icon.svg`}
-                alt="place holder image"
+                alt="black list icon"
             />
             <p>Blacklist User</p>
         </button>
         <button onClick={detailsPageHandler}>
             <img
                 src={`/images/icon/active-user-icon.svg`}
-                alt="place holder image"
+                alt="active user icon"
             />
             <p>Activate User</p>
         </button>

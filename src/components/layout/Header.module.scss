@@ -171,6 +171,11 @@
         display: none;
     }
 
+
+}
+
+@media screen and (max-width: $medium-screen) {
+   
     .hamburger {
         display: block;
     }

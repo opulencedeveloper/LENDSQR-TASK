@@ -37,8 +37,6 @@ $border-radius: 5px;
     width: $half-width;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .section {
@@ -92,7 +90,6 @@ $border-radius: 5px;
         font-size: 20px;
         margin-bottom: 5rem;
     }
-
 }
 
 .emailInputStyle {
@@ -112,7 +109,6 @@ $border-radius: 5px;
     justify-content: space-between;
     border: 2px solid $tertiary-color-0;
     height: 50px;
-
 }
 
 .passwordInputStyle {
@@ -150,24 +146,17 @@ $border-radius: 5px;
 }
 
 
-
-
-
 @media screen and (max-width: $large-screen) {
     .section1 {
         display: none;
     }
 
-
     .section2 {
         width: $full-width;
         align-items: center;
-
     }
 
     .formStyle {
         width: 80%;
-
     }
-
 }

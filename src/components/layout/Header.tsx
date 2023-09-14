@@ -3,7 +3,6 @@ import { useState } from "react";
 import InputButton from "../ui/InputButton";
 import styles from "./Header.module.scss";
 import Portal from "../ui/Portal";
-import Navigation from "./Navigation";
 import MobileNavigation from "./MobileNavigation";
 
 const { headerStyle, searchButtonStyle, inputContainer,
@@ -18,19 +17,22 @@ const Header = () => {
     const toggleDrawer = () => {
         if (isOpen) {
             navAnimationClass = "";
-            showNavClass = "";
+            showNavClass = openNav;
+            
             setIsOpen((prevExpenses) => {
                 return !prevExpenses;
             });
         } else {
             navAnimationClass = open;
-            showNavClass = openNav;
+            showNavClass = "";
             setIsOpen((prevExpenses) => {
                 return !prevExpenses;
             });
         }
     };
+
     const searchButtonHandler = () => { }
+
     return <>
         <Portal>
             <div onClick={toggleDrawer}
@@ -50,27 +52,30 @@ const Header = () => {
                 parentStyle={inputContainer}
                 buttonType="button"
                 onClick={searchButtonHandler}
-                butonStyle={searchButtonStyle}><img
+                butonStyle={searchButtonStyle}>
+                <img
                     className={searchIcon}
                     src="/images/icon/search-icon.svg"
                     alt="search icon"
-                /></InputButton>
+                />
+            </InputButton>
             <div >
                 <a href="">Docs</a>
                 <img
                     src="/images/icon/bell-icon.svg"
                     alt="bell icon"
                 />
-                <div><img
-                    src="/images/image/place-holder-image.svg"
-                    alt="place holder image"
-                /></div>
+                <div>
+                    <img
+                        src="/images/image/place-holder-image.svg"
+                        alt="place holder image"
+                    />
+                </div>
                 <select>
                     <option>Victor</option>
                     <option>Amobi</option>
                 </select>
             </div>
-
 
             <button
                 className={`${navAnimationClass} ${hamburger}`}

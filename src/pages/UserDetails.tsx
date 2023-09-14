@@ -60,7 +60,7 @@ const UserDetails = () => {
         <div className={firstDiv}> <button onClick={prevPageHandler}>
             <img
                 src={`/images/icon/arrow-back-icon.svg`}
-                alt="place holder image"
+                alt="arrow back icon"
             /></button>
             <p>Back to Users</p>
         </div>
@@ -76,7 +76,7 @@ const UserDetails = () => {
                 <div>
                     <div><img
                         src="/images/icon/dashboard-profile-icon.svg"
-                        alt="LendsSQR Company Logo"
+                        alt="Dashboard profile icon"
                     /></div>
                     <div><p>Grace Effiom</p><p>LSQFf587g90</p></div>
                 </div>
@@ -84,7 +84,7 @@ const UserDetails = () => {
                     <p>User's Tier</p>
                     <div>{Array.from({ length: 3 }, (_, index) => (<img key={index}
                         src="/images/icon/filled-star-icon.svg"
-                        alt="LendsSQR Company Logo"
+                        alt="star rating icon"
                     />))}</div>
                 </div>
                 <div>

@@ -1,17 +1,14 @@
 @import '../styles.scss';
 
 %commonTableDataStyle {
-
     td {
         font-size: 14px;
-
         color: $tertiary-color;
     }
 }
 
 %overLayCommonStyle {
     border: 0.5px solid rgba($primary-color, 0.2);
-    ;
     border-radius: 8px;
     box-sizing: border-box;
     outline: none;
@@ -52,7 +49,6 @@
         font-weight: 500;
         padding-left: 1rem;
         color: $primary-color;
-
     }
 }
 
@@ -100,14 +96,12 @@
         font-weight: 600;
         margin-top: 0.8rem;
     }
-
 }
 
 
 th,
 td {
     padding: 0px 24px 0px 20px;
-
 }
 
 .tableContainer {
@@ -115,7 +109,6 @@ td {
     height: fit-content;
     padding: 1rem;
     overflow: auto;
-
 
     table {
         width: $dashBoardCommonWidth;
@@ -143,6 +136,7 @@ td {
     box-shadow: 3px 5px 20px 0px $shadow-color;
     border: 1px solid $tertiary-color-shade-1;
     // STOPPED HERE
+    //CONTINE BY 2AM Tommorow
 
     p {
         color: $tertiary-color;
@@ -159,7 +153,6 @@ td {
         background-image: url('../../public/images/icon/drop-down-2-icon.svg');
         background-repeat: no-repeat;
         background-position: right 15px center;
-
     }
 
 
@@ -227,15 +220,11 @@ td {
 .tableDataStyle {
     @extend %commonTableDataStyle;
     border-bottom: 1px solid $tertiary-color-shade;
-
-
 }
 
 .tableDataEndStyle {
     @extend %commonTableDataStyle;
 }
-
-
 
 .pagerStyle {
     display: flex;
@@ -250,7 +239,6 @@ td {
 
         p {
             font-size: 14px;
-
         }
 
         select {
@@ -378,20 +366,4 @@ td {
         padding-left: 0rem;
         margin-left: 0.5rem;
     }
-
-    // .pagerStyle {
-       
-    //     margin: 0.2rem 0rem 0rem 0.2rem;
-
-    //     div:nth-child(1) {
-    //         p {
-    //             font-size: 10px;
-    //         }
-    //     }
-    //     div:nth-child(2) {
-    //         p {
-    //             font-size: 10px;
-    //         }
-    //     }
-    // }
 }

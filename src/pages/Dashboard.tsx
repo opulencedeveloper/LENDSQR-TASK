@@ -7,11 +7,15 @@ import TextButton from "../components/ui/TextButton";
 
 import styles from "./Dashboard.module.scss";
 import MoreVertDropDown from "../components/dashboard/MoreVertDropDown";
+import { useNavigate } from "react-router-dom";
 
 const { section1, card, cardContainer, tableContainer, headerStyle,
     tableDataStyle, usersText, pagerStyle, tableDataEndStyle, inActiveStyle,
     pendingStyle, blackListStyle, activeStyle, moreVertButton, overLay, moreVertOverlay
 } = styles;
+
+const storedUserData = localStorage.getItem("userData");
+
 
 const cardContent: CardContentType[] = [
     {
@@ -40,41 +44,6 @@ const tableHeader: string[] = [
     "Organization", "Username", "Email", "Phone number", "Date joined", "Status",
 ];
 
-const tableData: TableDataType[] = [
-    {
-        org: "Lendsqr",
-        username: "Adedeji",
-        email: "adedeji@lendsqr.com",
-        phoneNo: "08078903721",
-        date: "May 15, 2020 10:00 AM",
-        status: "Active"
-    },
-    {
-        org: "Lendsqr",
-        username: "Adedeji",
-        email: "adedeji@lendsqr.com",
-        phoneNo: "08078903721",
-        date: "May 15, 2020 10:00 AM",
-        status: "Inactive"
-    },
-    {
-        org: "Lendsqr",
-        username: "Adedeji",
-        email: "adedeji@lendsqr.com",
-        phoneNo: "08078903721",
-        date: "May 15, 2020 10:00 AM",
-        status: "Pending"
-    },
-    {
-        org: "Lendsqr",
-        username: "Adedeji",
-        email: "adedeji@lendsqr.com",
-        phoneNo: "08078903721",
-        date: "May 15, 2020 10:00 AM",
-        status: "Blacklisted"
-    },
-];
-
 const pageButtonText: string[] = [
     "1", "2", "3", "...", "15", "16",
 ];
@@ -91,6 +60,13 @@ const overLayInput: OverLayInputType[] = [
 const Dashboard = () => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedMoreVert, setSelectedMoreVert] = useState("");
+    const navigate = useNavigate();
+
+    if (!storedUserData) {
+        navigate('/', { replace: true });
+        return null;;
+    }
+    const userDataObject: TableDataType[] = JSON.parse(storedUserData);
 
     const toggleOverlayHandler = () => {
         setShowOverlay(prev => !prev);
@@ -106,7 +82,7 @@ const Dashboard = () => {
             {cardContent.map((cardData, index) => <div className={card} key={index}>
                 <div><img
                     src={`/images/icon/${cardData.icon}-icon.svg`}
-                    alt="place holder image"
+                    alt={`${cardData.icon} icon`}
                 /></div>
                 <p>{cardData.title}</p>
                 <p>{cardData.subtitle}</p>
@@ -137,15 +113,15 @@ const Dashboard = () => {
                                 <button onClick={toggleOverlayHandler} type="button">
                                     <img
                                         src={`/images/icon/filter-results-icon.svg`}
-                                        alt="place holder image" />
+                                        alt="Table filter results icon" />
                                 </button>
                             </div>
                         </th>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((data, tableIndex) => {
-                        const isEnd = tableIndex === tableData.length - 1;
+                    {userDataObject.map((data, tableIndex) => {
+                        const isEnd = tableIndex === userDataObject.length - 1;
                         const labelStyle = data.status === "Pending" ? pendingStyle : data.status === "Inactive" ? inActiveStyle : data.status === "Blacklisted" ? blackListStyle : activeStyle;
 
                         return <tr className={isEnd ? tableDataEndStyle : tableDataStyle}>
@@ -167,32 +143,33 @@ const Dashboard = () => {
                         </tr>
                     })}
                 </tbody>
-
             </table>
-
         </div>
 
         <div className={pagerStyle}> <div ><p>Showing</p> <select><option>100</option>
             <option>100</option>
             <option>100</option>
         </select>
-            <p>out of {tableData.length}</p>
+            <p>out of {userDataObject.length}</p>
         </div>
-            <div><button><img
-                src={`/images/icon/angle-left-icon.svg`}
-                alt="place holder image"
-            /></button>
+            <div>
+                <button>
+                    <img
+                        src={`/images/icon/angle-left-icon.svg`}
+                        alt="Angle left icon"
+                    />
+                </button>
                 {pageButtonText.map((i, index) => <p key={index}>{i}</p>)}
-
                 <button>
                     <img
                         src={`/images/icon/angle-right-icon.svg`}
-                        alt="place holder image"
-                    /></button>
+                        alt="Angle right icon"
+                    />
+                </button>
             </div>
 
-        </div> </section>
-
+        </div>
+    </section>
 }
 
 export default Dashboard;

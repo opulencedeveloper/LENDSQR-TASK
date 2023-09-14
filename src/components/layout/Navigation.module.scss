@@ -56,6 +56,7 @@ $common-margin: 0.7rem;
         select {
             border: none;
             outline: none;
+            cursor: pointer;
             color: $primary-color;
             background-color: transparent;
             width: 10.3rem;
@@ -71,6 +72,7 @@ $common-margin: 0.7rem;
     div:nth-child(2) {
         @extend %commonStyle;
         align-items: center;
+        cursor: pointer;
 
         img {
             @extend %iconStyle;
@@ -85,6 +87,32 @@ $common-margin: 0.7rem;
 
     p:nth-child(3) {
         @extend %navHeaderCommonStyle;
+    }
+}
+
+.logout {
+    div {
+        display: flex;;
+        align-items: center;
+        margin-top: 4rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba($primary-color, 0.3);
+
+        img {
+            height: 16px;
+            width: 16px;
+        }
+
+        p {
+            color: $primary-color;
+            font-size: 16px;
+        }
+    }
+
+    >p {
+        padding-left: $layout-padding;
+        color: $primary-color;
+        font-size: 12px;
     }
 }
 

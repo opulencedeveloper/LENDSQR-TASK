@@ -18,6 +18,7 @@ export type InputProp = {
 
 export type TextButtonProp = {
   className?: string;
+  disable?: boolean;
   children: ChildrenProps;
   buttonType: ButtonType;
   onClick?: () => void;
@@ -51,7 +52,6 @@ export interface TableDataType {
   username: string;
   email: string;
   phoneNo: string;
-  phoneNo: string;
   date: string;
   status: string;
 }
@@ -68,4 +68,26 @@ export interface UserInformationType {
 export interface UserDataType {
   header: string;
   content: GenericObject[];
+}
+
+export type HttpPropType = {
+  url: string;
+  method: string;
+  token: string;
+  body: {
+    email: emailValue;
+  };
+};
+
+export interface UseHttpResponse {
+  isLoading: boolean;
+  error: string | null;
+  sendRequest: (
+    requestConfig: HttpPropType,
+    applyData: () => void
+  ) => Promise<void>;
+}
+
+export interface HttpResponseData {
+  tableData: TableDataType;
 }
