@@ -19,7 +19,7 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="dashboard">
+        <Route path="/dashboard/">
           <Route index element={<Dashboard />} />
           <Route path=":email" element={<UserDetails />} />
         </Route>
