@@ -58,12 +58,14 @@ const Auth = () => {
                         butonStyle={showpassTextStyle}
                         inputStyle={passwordInputStyle}>{showPassword ? "Show" : "Hide"}
                     </TextInputButton>
+                    {error && <p>{error}</p>}
                     <div className={fPasswordButtonDiv}>
                         <TextButton buttonType="button"
                             onClick={forgotPasswordHandler}
                         >Forgot PASSWORD?
                         </TextButton>
                     </div>
+                   
                     <TextButton disable={isLoading} buttonType="button" onClick={loginHandler} className={loginTextStyle}>
                         {isLoading ? "Please Wait" : "Log in"}
                     </TextButton>

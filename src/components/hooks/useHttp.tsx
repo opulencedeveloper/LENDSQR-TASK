@@ -19,9 +19,18 @@ const useHttp = () => {
       } else {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    } catch (err) {
-      console.error(err);
-      setError("An error occurred while processing the response.");
+    }  catch (err) {
+      
+      if (err instanceof Error) {
+        console.log(err);
+        if (err.message === "Failed to fetch") {
+          setError("Network error! Please check your internet connection.");
+        } else {
+          setError(err.message || "Something went wrong!");
+        }
+      } else {
+        setError("Error occurred, try again.");
+      }
     }
     setIsLoading(false);
   }, []);
